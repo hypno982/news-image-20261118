@@ -2,100 +2,274 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>World news, Wednesday 18 November 2026</title>
+<title>The Day in the World</title>
 <style>
-  @page { size: 1024px 1024px; margin: 0; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1024px; height: 1024px; overflow: hidden; }
-  body {
-    font-family: "DejaVu Sans", sans-serif;
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1024px;
+    height: 1024px;
     background: #0a1622;
     color: #ffffff;
+    font-family: "DejaVu Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 1024px;
+    height: 1024px;
+    box-sizing: border-box;
+    padding: 28px 36px 28px 36px;
     display: flex;
     flex-direction: column;
-    padding: 26px 28px 20px;
+    overflow: hidden;
   }
 
-  header { border-bottom: 8px solid #f4a261; padding-bottom: 9px; display: flex; align-items: flex-end; justify-content: space-between; }
-  .mast { font-size: 27px; letter-spacing: 8px; font-weight: bold; color: #f4a261; }
-  .sub  { font-size: 29px; letter-spacing: 3.6px; color: #c3d2e0; font-weight: bold; margin-top: 8px; }
-  .date { font-size: 92px; font-weight: bold; line-height: 0.84; letter-spacing: -2px; text-align: right; }
+  /* ---------- masthead ---------- */
+  .masthead {
+    height: 168px;
+    box-sizing: border-box;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #f4a261;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .mast-left {
+    width: 620px;
+  }
+  .kicker {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #6f8ba3;
+    margin-bottom: 10px;
+  }
+  .title {
+    font-size: 41px;
+    font-weight: bold;
+    line-height: 1.02;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+  .dateline {
+    margin-top: 12px;
+    font-size: 17px;
+    letter-spacing: 3.4px;
+    color: #f4a261;
+  }
+  .date-block {
+    width: 244px;
+    text-align: right;
+    line-height: 1;
+  }
+  .date-block .d1 {
+    font-size: 66px;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+  .date-block .d2 {
+    font-size: 33px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-top: 4px;
+  }
+  .date-block .d3 {
+    font-size: 26px;
+    letter-spacing: 5px;
+    color: #f4a261;
+    margin-top: 6px;
+  }
 
-  .list { flex: 0 1 auto; display: flex; flex-direction: column; gap: 13px; margin-top: 15px; }
+  /* ---------- story rows ---------- */
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+  .row {
+    height: 172px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    border-bottom: 1px solid #1d3145;
+    padding: 0 2px;
+  }
+  .icon {
+    flex: 0 0 62px;
+    height: 62px;
+  }
+  .icon svg {
+    display: block;
+    width: 62px;
+    height: 62px;
+  }
+  .story {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .region {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2.8px;
+    margin-bottom: 8px;
+  }
+  .headline {
+    margin: 0;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 1.18;
+    letter-spacing: -0.8px;
+    width: 100%;
+  }
+  .r1 .region { color: #f4a261; }
+  .r2 .region { color: #8ecae6; }
+  .r3 .region { color: #b5e48c; }
+  .r4 .region { color: #c9a7ff; }
+  .r1 .icon { color: #f4a261; }
+  .r2 .icon { color: #8ecae6; }
+  .r3 .icon { color: #b5e48c; }
+  .r4 .icon { color: #c9a7ff; }
 
-  .item { display: flex; align-items: center; gap: 20px; background: #16293d; border-radius: 12px; padding: 14px 22px; border-left: 12px solid #4a90a4; }
-  .item.us   { border-left-color: #e07a5f; }
-  .item.asia { border-left-color: #f4a261; }
-  .item.tech { border-left-color: #63b3c9; }
-  .item.me   { border-left-color: #b98bbf; }
+  /* ---------- also on the day ---------- */
+  .also {
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    color: #c8d6e2;
+    white-space: nowrap;
+  }
+  .also b {
+    color: #f4a261;
+    letter-spacing: 2.6px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-right: 12px;
+  }
+  .sep {
+    color: #f4a261;
+    margin: 0 10px;
+  }
 
-  .item svg { width: 58px; height: 58px; flex: 0 0 58px; display: block; }
-
-  .txt { flex: 1; min-width: 0; }
-  .region { font-size: 19px; letter-spacing: 3.2px; font-weight: bold; text-transform: uppercase; color: #9db4c8; margin-bottom: 4px; }
-  .head { font-size: 44px; font-weight: bold; line-height: 1.08; letter-spacing: -1px; }
-  .head .num { color: #f4a261; }
-
-  .also { margin-top: 13px; font-size: 21px; line-height: 1.3; color: #8fa6bb; letter-spacing: 0.6px; text-align: center; }
-  .also b { color: #c3d2e0; letter-spacing: 2.6px; font-size: 18px; text-transform: uppercase; }
-
-  footer { margin-top: auto; border-top: 4px solid #24405a; padding-top: 9px; display: flex; align-items: baseline; justify-content: center; gap: 16px; flex-wrap: nowrap; white-space: nowrap; }
-  .foot-date { font-size: 27px; font-weight: bold; letter-spacing: 3.4px; color: #f4a261; }
-  .foot-topics { font-size: 19px; font-weight: bold; letter-spacing: 2.2px; color: #7d93a8; }
+  /* ---------- footer ---------- */
+  .footer {
+    height: 50px;
+    box-sizing: border-box;
+    border-top: 1px solid #1d3145;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    letter-spacing: 2.4px;
+  }
+  .footer .date {
+    color: #f4a261;
+    font-weight: bold;
+  }
+  .footer .keys {
+    color: #7f97ad;
+  }
 </style>
 </head>
 <body>
+<div class="page">
 
-<header>
-  <div>
-    <div class="mast">THE DAY IN THE WORLD</div>
-    <div class="sub">WEDNESDAY 18 NOVEMBER 2026</div>
-  </div>
-  <div class="date">18<br>NOV<br>2026</div>
-</header>
-
-<div class="list">
-
-  <div class="item us">
-    <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="20" fill="none" stroke="#e07a5f" stroke-width="4.5"/><path d="M9 26h34M26 6c7 6 7 34 0 40M26 6c-7 6-7 34 0 40" fill="none" stroke="#e07a5f" stroke-width="3.6"/></svg>
-    <div class="txt">
-      <div class="region">United States &middot; Senate</div>
-      <div class="head">Peltola flips Alaska, Democrats hit <span class="num">56</span></div>
+  <div class="masthead">
+    <div class="mast-left">
+      <div class="kicker">WORLD NEWS IN ONE IMAGE</div>
+      <div class="title">THE DAY IN THE WORLD</div>
+      <div class="dateline">WEDNESDAY 18 NOVEMBER 2026</div>
+    </div>
+    <div class="date-block">
+      <div class="d1">18</div>
+      <div class="d2">NOV</div>
+      <div class="d3">2026</div>
     </div>
   </div>
 
-  <div class="item asia">
-    <svg viewBox="0 0 52 52"><circle cx="19" cy="16" r="8" fill="none" stroke="#f4a261" stroke-width="4.5"/><circle cx="36" cy="20" r="6.5" fill="none" stroke="#f4a261" stroke-width="4.5"/><path d="M5 45c0-8 6-13 14-13s14 5 14 13" fill="none" stroke="#f4a261" stroke-width="4.5"/><path d="M37 45c0-7 4-11 10-11" fill="none" stroke="#f4a261" stroke-width="4.5"/></svg>
-    <div class="txt">
-      <div class="region">Asia &middot; Summit</div>
-      <div class="head">Xi and Putin open talks as Trump arrives</div>
+  <div class="rows">
+
+    <div class="row r1">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="19" width="34" height="23" rx="2.5"/>
+          <line x1="16" y1="28" x2="32" y2="28"/>
+          <rect x="15" y="5" width="18" height="15" rx="1.5"/>
+          <polyline points="19.5,12.5 22.5,15.5 28.5,8.5"/>
+        </svg>
+      </div>
+      <div class="story">
+        <div class="region">UNITED STATES &middot; SENATE</div>
+        <div class="headline">Peltola wins Alaska &mdash; Democrats reach 56 Senate seats</div>
+      </div>
     </div>
+
+    <div class="row r2">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="17"/>
+          <ellipse cx="24" cy="24" rx="8" ry="17"/>
+          <ellipse cx="24" cy="24" rx="17" ry="6.5"/>
+          <circle cx="36" cy="12" r="3.4" fill="#0a1622"/>
+          <circle cx="36" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <div class="story">
+        <div class="region">ASIA &middot; APEC SHENZHEN</div>
+        <div class="headline">Xi and Putin open talks as Trump lands in Shenzhen</div>
+      </div>
+    </div>
+
+    <div class="row r3">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7,33 L7,27 Q7,25 10,24 L16,22.5 L21,16.5 L31,16.5 L34,22.5 L38,24 Q41,25 41,28 L41,33 Z"/>
+          <circle cx="16" cy="35" r="3.6"/>
+          <circle cx="32" cy="35" r="3.6"/>
+          <path d="M18,11 Q24,5.5 30,11"/>
+          <path d="M14.5,7 Q24,0.5 33.5,7"/>
+        </svg>
+      </div>
+      <div class="story">
+        <div class="region">TECHNOLOGY &middot; DRIVERLESS CARS</div>
+        <div class="headline">Waymo suspends freeway robotaxi rides after California ban</div>
+      </div>
+    </div>
+
+    <div class="row r4">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24,5 L39,10.5 L39,24 Q39,36.5 24,43 Q9,36.5 9,24 L9,10.5 Z"/>
+          <line x1="16" y1="16" x2="32" y2="32"/>
+          <line x1="32" y1="16" x2="16" y2="32"/>
+          <circle cx="24" cy="24" r="8.5" stroke-width="2.2"/>
+        </svg>
+      </div>
+      <div class="story">
+        <div class="region">MIDDLE EAST &middot; SANCTIONS</div>
+        <div class="headline">Australia sanctions Israeli settlers over West Bank violence</div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="item tech">
-    <svg viewBox="0 0 52 52"><path d="M9 30l5-13c1-3 4-4 6-2l4 4 4-4c2-2 5-1 6 2l5 13" fill="none" stroke="#63b3c9" stroke-width="4.5"/><rect x="7" y="30" width="38" height="15" rx="5" fill="none" stroke="#63b3c9" stroke-width="4.5"/><circle cx="16" cy="44" r="5" fill="#0a1622" stroke="#63b3c9" stroke-width="3.6"/><circle cx="36" cy="44" r="5" fill="#0a1622" stroke="#63b3c9" stroke-width="3.6"/></svg>
-    <div class="txt">
-      <div class="region">Tech &middot; Driverless</div>
-      <div class="head">Waymo halts robotaxis after California ban</div>
-    </div>
+  <div class="also">
+    <b>Also on the day</b>
+    Iran strikes Kuwait and Bahrain
+    <span class="sep">&middot;</span>
+    Hungary hunts for a football hero
   </div>
 
-  <div class="item me">
-    <svg viewBox="0 0 52 52"><path d="M26 5l18 9v13c0 11-8 17-18 19-10-2-18-8-18-19V14z" fill="none" stroke="#b98bbf" stroke-width="4.5"/><path d="M17 26l6 7 12-13" fill="none" stroke="#b98bbf" stroke-width="4.5"/></svg>
-    <div class="txt">
-      <div class="region">Middle East &middot; Sanctions</div>
-      <div class="head">Australia sanctions Israeli settlers over West Bank</div>
-    </div>
+  <div class="footer">
+    <div class="date">18 NOVEMBER 2026</div>
+    <div class="keys">PELTOLA &middot; APEC &middot; WAYMO &middot; SANCTIONS</div>
   </div>
 
 </div>
-
-<div class="also"><b>Also on the day</b> &nbsp; Iran strikes Kuwait and Bahrain &middot; Hungary seeks a football hero</div>
-
-<footer>
-  <span class="foot-date">18 NOVEMBER 2026</span>
-  <span class="foot-topics">ALASKA &middot; APEC &middot; WAYMO &middot; WEST BANK</span>
-</footer>
-
 </body>
 </html>

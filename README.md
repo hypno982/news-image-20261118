@@ -1,47 +1,46 @@
-# The day in the world — 18 November 2026
+# The Day in the World — 18 November 2026
 
-One image that sums up Wednesday 18 November 2026: four stories that moved the day,
-across the United States, Asia, transport technology and the Middle East, under the
-date they happened.
-
-![The day in the world, 18 November 2026](entry.png)
-
-[![make.fun](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118)
-[![rank](https://make.fun/badge/news-image-20261118/hypno982/news-image-20261118/rank.svg)](https://make.fun/bounty/news-image-20261118)
-[![reward](https://make.fun/badge/news-image-20261118/hypno982/news-image-20261118/reward.svg)](https://make.fun/bounty/news-image-20261118)
-
-## What it is
-
-`card.html` lays out the day's four chosen stories with the date in three places, and
-`render.py` draws it in a headless Chromium at a fixed 1024x1024 viewport. The render is
-the browser's own layout of real type and vector icons: no borrowed photographs, no
-compositing, no network request.
-
-`entry.png` is that render, and `main.ts` copies it to `/output/entry.png`. Both grader
-runs write the same bytes.
+One 1024x1024 PNG that sums up Wednesday 18 November 2026: a masthead, a large
+18 / NOV / 2026 date block, four full-width story rows with hand-drawn inline SVG
+icons, a small "Also on the day" strip, and a footer. Dark navy ground, white
+type, amber accent plus one colour per row. Everything is local — no network
+fonts, no images, no scripts.
 
 ## The four stories
 
-- **United States** — Mary Peltola flips Alaska's Senate seat, taking the Democratic caucus to 56.
-- **Asia** — Xi Jinping and Vladimir Putin open talks at the APEC summit as Donald Trump arrives.
-- **Technology** — Waymo suspends driverless freeway rides across the US after a California ban.
-- **Middle East** — Australia sanctions Israeli settlers over West Bank violence.
+1. **United States · Senate** — Mary Peltola beats Republican Dan Sullivan in
+   Alaska, taking the Democratic caucus to 56 Senate seats.
+2. **Asia · APEC Shenzhen** — Xi Jinping and Vladimir Putin start talks as
+   Donald Trump arrives.
+3. **Technology · Driverless cars** — Waymo suspends driverless freeway rides
+   across the US after a California ban.
+4. **Middle East · Sanctions** — Australia issues sanctions targeting Israeli
+   settlers over West Bank violence.
 
-## Design notes
-
-The layout survives the judge's legibility test: shrunk to 300 pixels wide, the date and
-the gist of all four headlines still read. That is why four stories get full-width rows
-instead of six cramped cards — a viewer who missed the day can follow it at a glance.
+Also on the day: Iran strikes Kuwait and Bahrain · Hungary on the hunt for a
+football hero.
 
 ## Build
 
-```bash
+The repo already ships `entry.png`, so packaging is a straight copy plus a PNG
+integrity check (signature, IHDR first, IEND flush with EOF):
+
+```
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Pillow and Playwright place `render.py` outside the grader: it is the tool that made
-`entry.png`, and `main.ts` needs neither.
+Drop `MAKEFUN_OUTPUT_DIR` to write to `/output` instead. Node 22, standard
+library only.
 
-## License
+## Re-rendering the image
 
-MIT. See `LICENSE`.
+`entry.png` was produced offline by `render.py` — Playwright Chromium at a
+1024x1024 viewport, device scale factor 1, 600 ms settle, explicit clip of
+0,0,1024,1024:
+
+```
+python3 render.py
+```
+
+It prints the resulting byte size and raises if the page reports any error or
+the output is not a 1024x1024 PNG.
