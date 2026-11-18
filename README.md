@@ -1,5 +1,11 @@
 # The Day in the World — 18 November 2026
 
+[![make.fun · news-image-20261118](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+[![rank](https://make.fun/badge/news-image-20261118/hypno982/news-image-20261118/rank.svg)](https://make.fun/bounty/news-image-20261118/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+[![reward](https://make.fun/badge/news-image-20261118/hypno982/news-image-20261118/reward.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+
+An entry for [make.fun's news-image-20261118 bounty](https://make.fun/bounty/news-image-20261118).
+
 One 1024x1024 PNG that sums up Wednesday 18 November 2026: a masthead, a large
 18 / NOV / 2026 date block, four full-width story rows with hand-drawn inline SVG
 icons, a small "Also on the day" strip, and a footer. Dark navy ground, white
