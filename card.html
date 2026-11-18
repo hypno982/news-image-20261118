@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>World news, Wednesday 18 November 2026</title>
+<style>
+  @page { size: 1024px 1024px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body {
+    font-family: "DejaVu Sans", sans-serif;
+    background: #0a1622;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 28px 22px;
+  }
+
+  header { border-bottom: 8px solid #f4a261; padding-bottom: 10px; display: flex; align-items: flex-end; justify-content: space-between; }
+  .mast { font-size: 27px; letter-spacing: 8px; font-weight: bold; color: #f4a261; }
+  .sub  { font-size: 30px; letter-spacing: 4px; color: #c3d2e0; font-weight: bold; margin-top: 9px; }
+  .date { font-size: 96px; font-weight: bold; line-height: 0.85; letter-spacing: -2px; text-align: right; }
+
+  .list { flex: 1; display: flex; flex-direction: column; justify-content: space-between; margin-top: 16px; }
+
+  .item { display: flex; align-items: center; gap: 20px; background: #16293d; border-radius: 12px; padding: 15px 22px; border-left: 12px solid #4a90a4; }
+  .item.us   { border-left-color: #e07a5f; }
+  .item.asia { border-left-color: #f4a261; }
+  .item.tech { border-left-color: #63b3c9; }
+  .item.me   { border-left-color: #b98bbf; }
+
+  .item svg { width: 58px; height: 58px; flex: 0 0 58px; display: block; }
+
+  .txt { flex: 1; min-width: 0; }
+  .region { font-size: 20px; letter-spacing: 3.4px; font-weight: bold; text-transform: uppercase; color: #9db4c8; margin-bottom: 5px; }
+  .head { font-size: 47px; font-weight: bold; line-height: 1.1; letter-spacing: -1px; }
+  .head .num { color: #f4a261; }
+
+  footer { margin-top: 14px; border-top: 4px solid #24405a; padding-top: 10px; font-size: 23px; color: #b6c6d6; letter-spacing: 2.4px; text-align: center; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="mast">THE DAY IN THE WORLD</div>
+    <div class="sub">WEDNESDAY 18 NOVEMBER 2026</div>
+  </div>
+  <div class="date">18<br>NOV<br>2026</div>
+</header>
+
+<div class="list">
+
+  <div class="item us">
+    <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="20" fill="none" stroke="#e07a5f" stroke-width="4.5"/><path d="M9 26h34M26 6c7 6 7 34 0 40M26 6c-7 6-7 34 0 40" fill="none" stroke="#e07a5f" stroke-width="3.6"/></svg>
+    <div class="txt">
+      <div class="region">United States &middot; Senate</div>
+      <div class="head">Peltola flips Alaska, Democrats hit <span class="num">56</span></div>
+    </div>
+  </div>
+
+  <div class="item asia">
+    <svg viewBox="0 0 52 52"><circle cx="19" cy="16" r="8" fill="none" stroke="#f4a261" stroke-width="4.5"/><circle cx="36" cy="20" r="6.5" fill="none" stroke="#f4a261" stroke-width="4.5"/><path d="M5 45c0-8 6-13 14-13s14 5 14 13" fill="none" stroke="#f4a261" stroke-width="4.5"/><path d="M37 45c0-7 4-11 10-11" fill="none" stroke="#f4a261" stroke-width="4.5"/></svg>
+    <div class="txt">
+      <div class="region">Asia &middot; Summit</div>
+      <div class="head">Xi and Putin open talks as Trump arrives</div>
+    </div>
+  </div>
+
+  <div class="item tech">
+    <svg viewBox="0 0 52 52"><path d="M9 30l5-13c1-3 4-4 6-2l4 4 4-4c2-2 5-1 6 2l5 13" fill="none" stroke="#63b3c9" stroke-width="4.5"/><rect x="7" y="30" width="38" height="15" rx="5" fill="none" stroke="#63b3c9" stroke-width="4.5"/><circle cx="16" cy="44" r="5" fill="#0a1622" stroke="#63b3c9" stroke-width="3.6"/><circle cx="36" cy="44" r="5" fill="#0a1622" stroke="#63b3c9" stroke-width="3.6"/></svg>
+    <div class="txt">
+      <div class="region">Tech &middot; Driverless</div>
+      <div class="head">Waymo halts robotaxis after California ban</div>
+    </div>
+  </div>
+
+  <div class="item me">
+    <svg viewBox="0 0 52 52"><path d="M26 5l18 9v13c0 11-8 17-18 19-10-2-18-8-18-19V14z" fill="none" stroke="#b98bbf" stroke-width="4.5"/><path d="M17 26l6 7 12-13" fill="none" stroke="#b98bbf" stroke-width="4.5"/></svg>
+    <div class="txt">
+      <div class="region">Middle East &middot; Sanctions</div>
+      <div class="head">Australia sanctions Israeli settlers</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>18 NOVEMBER 2026 &middot; ALASKA &middot; APEC &middot; WAYMO &middot; WEST BANK</footer>
+
+</body>
+</html>
